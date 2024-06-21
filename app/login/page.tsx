@@ -60,24 +60,28 @@ export default async function Login({ searchParams }: { searchParams: { message:
         Back
       </Link>
 
-      <form className="flex-1 flex flex-col w-full justify-center gap-2 text-foreground">
-        <h1 className="text-center text-3xl">Login</h1>
-        <label className="text-md" htmlFor="email">
-          Email
-        </label>
-        <input className="rounded-md px-4 py-2 bg-inherit border mb-6" name="email" placeholder="you@example.com" required />
-        <label className="text-md" htmlFor="password">
-          Password
-        </label>
-        <input className="rounded-md px-4 py-2 bg-inherit border mb-6" type="password" name="password" placeholder="••••••••" required />
-        <SubmitButton formAction={signIn} className="bg-green-700 rounded-md px-4 py-2 text-foreground mb-2" pendingText="Signing In...">
-          Sign In
-        </SubmitButton>
-        <SubmitButton formAction={redirectSignUp} className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2" pendingText="Signing Up...">
-          Sign Up
-        </SubmitButton>
+      <div className="">
+        <form className="flex-1 flex flex-col w-full justify-center gap-2 text-foreground">
+          <h1 className="text-center text-3xl">Login</h1>
+          <label className="text-md" htmlFor="email">
+            Email
+          </label>
+          <input className="rounded-md px-4 py-2 bg-inherit border mb-6" name="email" placeholder="you@example.com" required />
+          <label className="text-md" htmlFor="password">
+            Password
+          </label>
+          <input className="rounded-md px-4 py-2 bg-inherit border mb-6" type="password" name="password" placeholder="••••••••" required />
+          <SubmitButton formAction={signIn} className="bg-green-700 rounded-md px-4 py-2 text-foreground mb-2" pendingText="Signing In...">
+            Sign In
+          </SubmitButton>
+        </form>
+        <form className="mt-3">
+          <SubmitButton formAction={redirectSignUp} className="w-full border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2" pendingText="Signing Up...">
+            Sign Up
+          </SubmitButton>
+        </form>
         {searchParams?.message && <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">{searchParams.message}</p>}
-      </form>
+      </div>
     </div>
   );
 }
